@@ -10,6 +10,9 @@ const clientSchema = new Schema({
     type: String,
     required: true,
   },
+  homeAddress: {
+    type: String
+  },
   email: {
     type: String,
   },
