@@ -14,6 +14,7 @@ export default Projects = () => {
 
   const projects = data?.projects || [];
 
+
   const handleModalClose = () => {
     setIsModalVisible(false);
   };
