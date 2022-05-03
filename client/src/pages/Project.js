@@ -14,14 +14,14 @@ import { removeProjectId } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
 
-const SavedProjects = () => {
+const Projects = () => {
   const { loading, data } = useQuery(QUERY_ME);
   const [removeProject, { error }] = useMutation(REMOVE_PROJECT);
 
   const userData = data?.me || {};
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
-  const handleDeleteBook = async (projectId) => {
+  const handleDeleteProject = async (projectId) => {
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
