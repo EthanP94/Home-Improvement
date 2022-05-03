@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProjectList = ({
-    _id
+export default ProjectList = ({
+    _id = 0, openModal
 }) => {
-    if (!_id.length) {
-        return <h3>No Projects Yet</h3>
-    }
 
     return (
         <div>
-            
+            <button onClick={openModal}></button>        
         </div>
     )
 }

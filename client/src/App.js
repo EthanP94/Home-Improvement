@@ -50,7 +50,7 @@ function App() {
               path="/projects" 
               element={<Projects/>} 
             />
-            <Route 
+            {/* <Route 
               path="/project/:projectId" 
               element={<SingleProject/>} 
             />
@@ -69,7 +69,7 @@ function App() {
             <Route 
               path='*' 
               element={<h1 className="display-2">Wrong page!</h1>}
-            />
+            /> */}
           </Routes>
         </>
       </Router>
