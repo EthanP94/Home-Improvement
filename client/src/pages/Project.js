@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import ProjectList from "../components/ProjectList";
@@ -69,7 +68,7 @@ const Modal = ({ open, close }) => {
     <>
       <main>
         Show modal
-        <button onClick={close}></button>
+        <button onClick={close}>Add Project</button>
       </main>
     </>
   );

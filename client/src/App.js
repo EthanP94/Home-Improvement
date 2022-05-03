@@ -9,8 +9,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Projects from './pages/Projects';
-import Employees from './pages/Employees';
-import Clients from './pages/Clients';
+import Employees from './pages/Employee';
+import Clients from './pages/Client';
 
 import Navbar from './components/Navbar';
 
