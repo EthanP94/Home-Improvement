@@ -12,34 +12,34 @@ export const LOGIN_MANAGER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-    mutation addProject() {
-        addProject(){
-            token
-            project {
-                _id
-                employee {
-                    firstName
-                    lastName
-                }
-                client {
-                    _id
-                    firstName
-                    lastName
-                }
+    mutation addProject($scopeOfWork: String!, $estimatedWorkTime: String!) {
+        addProject(scopeOfWork: $scopeOfWork, estimatedWorkTime: $estimatedWorkTime){
+            _id
+            scopeOfWork
+            estimatedWorkTime
+            assignedEmployees {
+                firstName
+                lastName
+            }
+            client {
+                firstName
+                lastName
             }
         }
     }
 `;
 
 export const ADD_EMPLOYEE = gql`
-    mutation addEmployee() {
-        addEmployee(){
-            token
+    mutation addEmployee($firstName: String!, $lastName: String!, $expertise: String!, $email: String, $phoneNumber: String!) {
+        addEmployee(firstName: $firstName, lastName: $lastName, expertise: $expertise, email: $email, phoneNumber: $phoneNumber){
             employee {
                 _id
                 firstName
                 LastName
-                project {
+                expertise
+                email
+                phoneNumber
+                setProjects {
                     _id
                 }
             }
@@ -48,14 +48,15 @@ export const ADD_EMPLOYEE = gql`
 `;
 
 export const ADD_CLIENT = gql`
-    mutation addClient() {
-        addClient() {
-            token 
+    mutation addClient($firstName: String!, $lastName: String!, $email: String, $phoneNumber: String!) {
+        addClient(firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber) {
             client {
                 _id
                 firstName
                 lastName
-                project {
+                email
+                phoneNumber
+                setProjects {
                     _id
                 }
             }
