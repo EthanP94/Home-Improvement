@@ -22,10 +22,16 @@ const typeDefs = gql`
 
   type Project {
     projectId: ID!
-    scope_of_work: String!
-    est_work_time: Date!
-    est_price: Integer!
+    scopeOfWork: String!
+    estimatedWorkTime: String!
+    price: Number!
     employee: [Employee]
+  }
+
+  type Manager {
+    managerId: ID!
+    email: String!
+    password: String!
   }
 
   type Auth {
@@ -58,8 +64,8 @@ const typeDefs = gql`
       phone_number: String!
     ): Employee
     addProject(
-      scope_of_work: String!
-      est_work_time: Date!
+      scopeOfwork: String!
+      estimatedWorkTime: Date!
       est_price: Integer!
     ): Project
     removeEmployee(employeeId: ID!): Employee
