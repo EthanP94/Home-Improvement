@@ -1,4 +1,8 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
+
+const employeeSchema = require('./Employee');
+
+const clientSchema = require('./Client');
 
 const projectSchema = new Schema({
 
@@ -21,4 +25,6 @@ const projectSchema = new Schema({
   client: [clientSchema]
 });
 
-module.exports = projectSchema;
+const Project = model('Project', projectSchema);
+
+module.exports = Project;
