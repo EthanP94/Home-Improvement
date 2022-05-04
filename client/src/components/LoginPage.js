@@ -65,7 +65,7 @@ const LoginForm = () => {
         justifyContent="space-between"
         style={{ minHeight: "100vh" }}
       >
-        <img src={hilogo} alt="hi-logo" />
+        <img src={hilogo} alt="hi-logo" style={{ width: "80vh"}}/>
         <Box
           component="form"
           sx={{
@@ -73,9 +73,12 @@ const LoginForm = () => {
           }}
           noValidate
           autoComplete="off"
+          onSubmit={handleFormSubmit}
         >
           <div>
-            <TextField required id="outlined-required" label="Email" />
+            <TextField required id="outlined-required"
+            label="Email"
+            onChange={handleInputChange} />
             <br></br>
             <TextField
               id="filled-password-input"
@@ -83,6 +86,7 @@ const LoginForm = () => {
               type="password"
               autoComplete="current-password"
               variant="filled"
+              onChange={handleInputChange}
             />
           </div>
           <Button
@@ -94,9 +98,7 @@ const LoginForm = () => {
             Login
           </Button>
         </Box>
-        <div>
-          
-        </div>
+        <div></div>
       </Grid>
     </div>
   );

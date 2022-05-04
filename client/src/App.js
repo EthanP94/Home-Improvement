@@ -53,7 +53,7 @@ function App() {
             />
             <Route 
               path="/" 
-              element={<LoginPage/>} 
+              element={<LoginForm/>} 
             />
             <Route 
               path="/projects" 
