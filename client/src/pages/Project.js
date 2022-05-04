@@ -4,10 +4,11 @@ import { useQuery } from "@apollo/client";
 import ProjectList from "../components/ProjectList";
 import { QUERY_ALLPROJECTS } from "../utils/queries";
 import { ADD_PROJECT } from "../utils/mutations";
+import Button from '@mui/material/Button';
 
 import Auth from "../utils/auth";
 
-export default Projects = () => {
+const Project = () => {
   const { loading, data } = useQuery(QUERY_ALLPROJECTS);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -24,7 +25,8 @@ export default Projects = () => {
 
   return (
     <main>
-      <ProjectList openModal={handleModalOpen} />
+      <Button variant="contained">Add Project</Button>
+      <ProjectList openModal={handleModalOpen} projects={projects}/>
       {isModalVisible && <Modal close={handleModalClose} />}
     </main>
   );
@@ -69,8 +71,10 @@ const Modal = ({ open, close }) => {
     <>
       <main>
         Show modal
-        <button onClick={close}>Add Project</button>
+        <button onClick={close}></button>
       </main>
     </>
   );
 };
+
+export default Project;

@@ -39,32 +39,32 @@ const resolvers = {
       const token = signToken(client);
       return { token, client };
     },
-    saveProject: async (parent, { bookData }, context) => {
-      if (context.client) {
-        const updatedClient = await Client.findByIdAndUpdate(
-          { _id: context.client._id },
-          { $push: { savedBooks: bookData } },
-          { new: true }
-        );
+    // saveProject: async (parent, { bookData }, context) => {
+    //   if (context.client) {
+    //     const updatedClient = await Client.findByIdAndUpdate(
+    //       { _id: context.client._id },
+    //       { $push: { savedBooks: bookData } },
+    //       { new: true }
+    //     );
 
-        return updatedClient;
-      }
+    //     return updatedClient;
+    //   }
 
-      throw new AuthenticationError("You need to be logged in!");
-    },
-    removeProject: async (parent, { bookId }, context) => {
-      if (context.client) {
-        const updatedClient = await Client.findOneAndUpdate(
-          { _id: context.client._id },
-          { $pull: { savedBooks: { bookId } } },
-          { new: true }
-        );
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
+    // removeProject: async (parent, { bookId }, context) => {
+    //   if (context.client) {
+    //     const updatedClient = await Client.findOneAndUpdate(
+    //       { _id: context.client._id },
+    //       { $pull: { savedBooks: { bookId } } },
+    //       { new: true }
+    //     );
 
-        return updatedClient;
-      }
+    //     return updatedClient;
+    //   }
 
-      throw new AuthenticationError("You need to be logged in!");
-    },
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
   },
 };
 

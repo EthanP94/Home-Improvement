@@ -1,7 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-const projectSchema = require('./Project');
-
 const employeeSchema = new Schema({
 
   firstName: {
@@ -21,7 +19,12 @@ const employeeSchema = new Schema({
   phoneNumber: {
     type: String,
   },
-  setProjects: [projectSchema]
+  setProjects: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Project'
+    }
+  ]
 });
 
 const Employee = model('Employee', employeeSchema);

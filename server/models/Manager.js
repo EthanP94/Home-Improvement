@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const managerSchema = new Schema(
@@ -37,4 +37,6 @@ managerSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-module.exports = managerSchema;
+const Manager = model('Manager', managerSchema);
+
+module.exports = Manager;
