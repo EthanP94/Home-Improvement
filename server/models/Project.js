@@ -1,9 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-const employeeSchema = require('./Employee');
-
-const clientSchema = require('./Client');
-
 const projectSchema = new Schema({
 
   id: {
@@ -20,9 +16,19 @@ const projectSchema = new Schema({
     type: Number,
   },
   
-  assignedEmployees: [employeeSchema],
+  assignedEmployees: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Employee'
+    }
+  ],
 
-  client: [clientSchema]
+  client: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Client'
+    }
+  ]
 });
 
 const Project = model('Project', projectSchema);

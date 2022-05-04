@@ -24,7 +24,7 @@ const typeDefs = gql`
     projectId: ID!
     scopeOfWork: String!
     estimatedWorkTime: String!
-    price: Number!
+    price: Int!
     employee: [Employee]
   }
 
@@ -42,7 +42,7 @@ const typeDefs = gql`
   type Query {
     clients: [Client]
     clent(first_name: String!): Client
-    employee(first_name: String!): [Employee]
+    employees: [Employee]
     employee(employeeId: ID!): Employee
     me: Client
   }
@@ -65,8 +65,8 @@ const typeDefs = gql`
     ): Employee
     addProject(
       scopeOfwork: String!
-      estimatedWorkTime: Date!
-      est_price: Integer!
+      estimatedWorkTime: String!
+      est_price: Int!
     ): Project
     removeEmployee(employeeId: ID!): Employee
     removeProject(employeeId: ID!, projectId: ID!): Employee
