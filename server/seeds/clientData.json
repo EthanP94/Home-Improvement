@@ -1,0 +1,39 @@
+[
+  {
+    "firstName": "Jerry",
+    "lastName": "Springer",
+    "homeAddress": "4486 NotTheFather Blvd, Los Angeles, CA 90001",
+    "email": "jspring@gmail.com",
+    "phoneNumber": "310-575-7888"
+  },
+
+  {
+    "firstName": "Bruce",
+    "lastName": "Wayne",
+    "homeAddress": "2217 Wayne Estate, Gotham, NJ 80008",
+    "email": "iamvengancerawrxd@gmail.com",
+    "phoneNumber": "414-909-3400"
+  },
+
+  {
+    "firstName": "Bill",
+    "lastName": "Withers",
+    "homeAddress": "2756 Sunshine Ave, Slab Fork, WV 25920",
+    "email": "billy465@gmail.com",
+    "phoneNumber": "616-746-6936"
+  },
+  {
+    "firstName": "Rory",
+    "lastName": "Jones",
+    "homeAddress": "0159 Broad St, Delta Burg, MO 53877",
+    "email": "joneswashere@gmail.com",
+    "phoneNumber": "353-698-2447"
+  },
+  {
+    "firstName": "Doug",
+    "lastName": "McSimmons",
+    "homeAddress": "5734 Burlington St, Bad Axe, MI 48413",
+    "email": "mcdoug@gmail.com",
+    "phoneNumber": "586-794-0048"
+  }
+]
