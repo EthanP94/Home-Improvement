@@ -1,0 +1,114 @@
+[
+  {
+    "firstName": "Frank",
+    "lastName": "Davids",
+    "expertise": "Electrical",
+    "email": "ilovesparks@gmail.com",
+    "phoneNumber": "445-395-2934"
+  },
+  {
+    "firstName": "Tyrese",
+    "lastName": "Williams",
+    "expertise": "Plumbing",
+    "email": "runningonempty@gmail.com",
+    "phoneNumber": "748-889-2546"
+  },
+  {
+    "firstName": "Greta",
+    "lastName": "Floret",
+    "expertise": "Masonry",
+    "email": "stonecold@gmail.com",
+    "phoneNumber": "557-909-1223"
+  },
+  {
+    "firstName": "Dee",
+    "lastName": "Columbus",
+    "expertise": "Roofing",
+    "email": "deedeeshingles@gmail.com",
+    "phoneNumber": "464-687-0055"
+  },
+  {
+    "firstName": "Gary",
+    "lastName": "Moore",
+    "expertise": "Maintenance",
+    "email": "mooretolove@gmail.com",
+    "phoneNumber": "386-937-9387"
+  },
+  {
+    "firstName": "Tyler",
+    "lastName": "Cline",
+    "expertise": "Carpentry",
+    "email": "malignthecline@gmail.com",
+    "phoneNumber": "310-339-9477"
+  },
+  {
+    "firstName": "Desmond",
+    "lastName": "Brown",
+    "expertise": "HVAC",
+    "email": "hotncold@gmail.com",
+    "phoneNumber": "457-375-6666"
+  },
+  {
+    "firstName": "Noel",
+    "lastName": "Miller",
+    "expertise": "Landscaping",
+    "email": "noelthetroll@gmail.com",
+    "phoneNumber": "370-349-9580"
+  },
+  {
+    "firstName": "Ruby",
+    "lastName": "Rutherford",
+    "expertise": "Electrical",
+    "email": "rrelec@gmail.com",
+    "phoneNumber": "438-796-6986"
+  },
+  {
+    "firstName": "Zeke",
+    "lastName": "Nguyen",
+    "expertise": "Plumbing",
+    "email": "nguyenforthewin@gmail.com",
+    "phoneNumber": "376-889-1264"
+  },
+  {
+    "firstName": "Gerald",
+    "lastName": "Fjord",
+    "expertise": "Masonry",
+    "email": "fjordlord@gmail.com",
+    "phoneNumber": "303-607-1678"
+  },
+  {
+    "firstName": "Mohammad",
+    "lastName": "Beshara",
+    "expertise": "Roofing",
+    "email": "kingm@gmail.com",
+    "phoneNumber": "547-364-3735"
+  },
+  {
+    "firstName": "Jacob",
+    "lastName": "Elordi",
+    "expertise": "Maintenance",
+    "email": "euphoria@gmail.com",
+    "phoneNumber": "586-437-3546"
+  },
+  {
+    "firstName": "Dimitrios",
+    "lastName": "Astopolis",
+    "expertise": "Carpentry",
+    "email": "holymoly@gmail.com",
+    "phoneNumber": "310-339-9477"
+  },
+  {
+    "firstName": "Abai",
+    "lastName": "Tesfaye",
+    "expertise": "HVAC",
+    "email": "wildriverrun@gmail.com",
+    "phoneNumber": "220-335-5095"
+  },
+  {
+    "firstName": "Helga",
+    "lastName": "Wagner",
+    "expertise": "Landscaping",
+    "email": "wagswag@gmail.com",
+    "phoneNumber": "555-659-8567"
+  }
+]
