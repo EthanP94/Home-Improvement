@@ -10,7 +10,7 @@ const AppNavbar = () => {
 
   return (
     <>
-     Hellow
+     
     </>
   );
 };

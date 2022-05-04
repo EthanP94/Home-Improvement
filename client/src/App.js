@@ -13,7 +13,7 @@ import Project from './pages/Project';
 // import Clients from './pages/Client';
 
 import Navbar from './components/Navbar';
-
+import LoginPage from './components/LoginPage';
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -46,6 +46,10 @@ function App() {
         <>
           <Navbar />
           <Routes>
+            <Route 
+              path="/" 
+              element={<LoginPage/>} 
+            />
             <Route 
               path="/projects" 
               element={<Project/>} 
