@@ -3,73 +3,73 @@
     "id": "1",
     "scopeOfWork": "Specialty Bathroom Vanity Light Installation",
     "estimatedWorkTime": "4 Hours",
-    "price": "150"
+    "price": 150
   },
   {
     "id": "2",
     "scopeOfWork": "Full Re-Roofing",
     "estimatedWorkTime": "3-5 Days",
-    "price": "8000"
+    "price": 8000
   },
   {
     "id": "3",
     "scopeOfWork": "Garbage Disposal Replacement/Leak Fix",
     "estimatedWorkTime": "2-4 Hours",
-    "price": "235"
+    "price": 235
   },
   {
     "id": "4",
     "scopeOfWork": "Porch to Driveway Stone Walkway",
     "estimatedWorkTime": "1-2 Days",
-    "price": "600"
+    "price": 600
   },
   {
     "id": "5",
     "scopeOfWork": "Thermostat Replacement",
     "estimatedWorkTime": "1 Hour",
-    "price": "60"
+    "price": 60
   },
   {
     "id": "6",
     "scopeOfWork": "Full Back Patio Installation",
     "estimatedWorkTime": "2 Weeks",
-    "price": "10000"
+    "price": 10000
   },
   {
     "id": "7",
     "scopeOfWork": "Backyard Electric Dog Fence Installation",
     "estimatedWorkTime": "6-8 Hours",
-    "price": "1000"
+    "price": 1000
   },
   {
     "id": "8",
     "scopeOfWork": "Living Room Remodelling",
     "estimatedWorkTime": "6 Months",
-    "price": "15000"
+    "price": 15000
   },
   {
     "id": "9",
     "scopeOfWork": "Multi-Head Split Ductless Air Conditioner Installation",
     "estimatedWorkTime": "2-3 Days",
-    "price": "12500"
+    "price": 12500
   },
   {
     "id": "10",
     "scopeOfWork": "Front Yard Full Garden, Lawn, and Tree Landscaping",
     "estimatedWorkTime": "4 Months",
-    "price": "$50000"
+    "price": 50000
   },
   {
     "id": "11",
     "scopeOfWork": "Luxury Basement 'Man Cave' Remodelling",
     "estimatedWorkTime": "6 Months",
-    "price": "$100000"
+    "price": 100000
   },
   {
     "id": "12",
     "scopeOfWork": "Shower Drain Clog",
     "estimatedWorkTime": "1 Hour",
-    "price": "$30"
+    "price": 30
   }
 
 ]

@@ -29,14 +29,14 @@ const typeDefs = gql`
   }
 
   type Manager {
-    managerId: ID!
+    _id: ID!
     email: String!
     password: String!
   }
 
   type Auth {
     token: ID!
-    client: Client
+    manager: Manager
   }
 
   type Query {
