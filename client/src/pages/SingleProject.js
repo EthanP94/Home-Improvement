@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
+import React from "react";
+import { useQuery } from '@apollo/client';
 import { QUERY_ONEPROJECT } from '../utils/queries'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-const singleProject = () => {
+const Project = () => {
     const { loading, data } = useQuery(QUERY_ONEPROJECT);
 
     const project = data?.projects || [];
@@ -15,14 +15,13 @@ const singleProject = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 800 }}>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Lizard
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over 6,000
-                species, ranging across all continents except Antarctica
+              <Typography gutterBottom variant="h6" component="div">
+                  ID: {project.id}
+                  Estimated Work Time: {project.estimatedWorkTime}
+                  Price: {project.price}
+                  Scope of Work: {project.scopeOfWork}
               </Typography>
             </CardContent>
           </Card>
@@ -31,4 +30,4 @@ const singleProject = () => {
       );
 }  
 
-export default singleProject;
+export default Project;
