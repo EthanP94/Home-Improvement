@@ -30,7 +30,7 @@ const Project = () => {
         <div>Loading...</div>
       ) : (
         <Box>
-          <Button variant="contained" onClick={handleModalOpen}>
+          <Button variant="contained" onClick={handleModalOpen} className="project-btn">
             Add Project
           </Button>
           <ProjectList openModal={handleModalOpen} projects={projects} />
@@ -83,24 +83,35 @@ const Modal = ({ open, close }) => {
       });
 
       // Auth.login(data.addProject.token);
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
     }
   };
 
   return (
     <>
       <main>
-        <Box sx={style}>
+        <Box sx={style}
+          onSubmit={handleFormSubmit}>
           <button onClick={close}>X</button>
           <br></br>
           <TextField
             id="standard-basic"
             label="EstimatedWorkTime"
             variant="standard"
+            onChange={handleChange}
+            name= "estimatedWorkTime"
+            value={formState.estimatedWorkTime}
           />
           <br></br>
-          <TextField id="standard-basic" label="Price" variant="standard" />
+          <TextField 
+            id="standard-basic" 
+            label="Price" 
+            variant="standard" 
+            onChange={handleChange}
+            name="price"
+            value={formState.price}
+          />
           <br></br>
           <br></br>
           <br></br>
@@ -109,11 +120,15 @@ const Modal = ({ open, close }) => {
             label="ScopeOfWork"
             multiline
             rows={4}
+            onChange={handleChange}
+            name="scopeOfWork"
+            value={formState.scopeOfWork}
           />
-          <Button
-            onClick={() => {
-              handleFormSubmit()
-            }}
+          <br></br>
+          <br></br>
+          <Button  
+            variant="contained" 
+            type="submit"
           >
             Submit
           </Button>
