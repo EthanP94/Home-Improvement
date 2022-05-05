@@ -58,5 +58,18 @@
     "scopeOfWork": "Front Yard Full Garden, Lawn, and Tree Landscaping",
     "estimatedWorkTime": "4 Months",
     "price": "$50000"
+  },
+  {
+    "id": "11",
+    "scopeOfWork": "Luxury Basement 'Man Cave' Remodelling",
+    "estimatedWorkTime": "6 Months",
+    "price": "$100000"
+  },
+  {
+    "id": "12",
+    "scopeOfWork": "Shower Drain Clog",
+    "estimatedWorkTime": "1 Hour",
+    "price": "$30"
   }
+
 ]
