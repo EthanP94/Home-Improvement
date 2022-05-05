@@ -16,7 +16,7 @@ db.once('open', async () => {
 
 
   // bulk creates each model
-  await Manager.insertMany(managerData);
+  await Manager.create(managerData);
   await Employee.insertMany(employeeData);
   await Client.insertMany(clientData);
   await Project.insertMany(projectData);

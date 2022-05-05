@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Client, Project, Employee } = require("../models");
+const { Client, Project, Employee, Manager } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -27,20 +27,21 @@ const resolvers = {
       return { token, client };
     },
     login: async (parent, { email, password }) => {
-      const client = await client.findOne({ email });
+      console.log("Here I am")
+      const manager = await Manager.findOne({ email });
 
-      if (!client) {
+      if (!manager) {
         throw new AuthenticationError("Incorrect credentials");
       }
 
-      const correctPw = await client.isCorrectPassword(password);
+      const correctPw = await manager.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
 
-      const token = signToken(client);
-      return { token, client };
+      const token = signToken(manager);
+      return { token, manager };
     },
     // saveProject: async (parent, { bookData }, context) => {
     //   if (context.client) {

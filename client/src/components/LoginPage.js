@@ -13,7 +13,7 @@ const LoginForm = () => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
   useEffect(() => {
     if (error) {
@@ -23,6 +23,10 @@ const LoginForm = () => {
     }
   }, [error]);
 
+  useEffect(() => {
+    console.log(error)
+  }, [userFormData])
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -31,12 +35,12 @@ const LoginForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
+    // const form = event.currentTarget;
+    // if (form.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
+    console.log(userFormData) 
     try {
       const { data } = await login({
         variables: { ...userFormData },
@@ -78,7 +82,10 @@ const LoginForm = () => {
           <div>
             <TextField fullWidth required id="outlined-required"
             label="Email"
-            onChange={handleInputChange} />
+            onChange={handleInputChange}
+            name="email" 
+            value={userFormData.email}
+            />
             <br></br>
             <TextField
               fullWidth
@@ -88,6 +95,8 @@ const LoginForm = () => {
               autoComplete="current-password"
               variant="filled"
               onChange={handleInputChange}
+              name="password"
+              value={userFormData.password}
             />
           </div>
           <Button
