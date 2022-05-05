@@ -65,7 +65,7 @@ const LoginForm = () => {
         justifyContent="space-between"
         style={{ minHeight: "100vh" }}
       >
-        <img src={hilogo} alt="hi-logo" style={{ width: "80vh"}}/>
+        <img src={hilogo} alt="hi-logo" style={{ width: "60vh"}}/>
         <Box
           component="form"
           sx={{
@@ -76,11 +76,12 @@ const LoginForm = () => {
           onSubmit={handleFormSubmit}
         >
           <div>
-            <TextField required id="outlined-required"
+            <TextField fullWidth required id="outlined-required"
             label="Email"
             onChange={handleInputChange} />
             <br></br>
             <TextField
+              fullWidth
               id="filled-password-input"
               label="Password"
               type="password"
