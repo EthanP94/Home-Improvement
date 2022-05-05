@@ -30,7 +30,7 @@ const Project = () => {
         <div>Loading...</div>
       ) : (
         <Box>
-          <Button variant="contained" onClick={handleModalOpen}>
+          <Button variant="contained" onClick={handleModalOpen} className="project-btn">
             Add Project
           </Button>
           <ProjectList openModal={handleModalOpen} projects={projects} />
@@ -83,8 +83,8 @@ const Modal = ({ open, close }) => {
       });
 
       // Auth.login(data.addProject.token);
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -98,9 +98,10 @@ const Modal = ({ open, close }) => {
             id="standard-basic"
             label="EstimatedWorkTime"
             variant="standard"
+            onChange={handleChange}
           />
           <br></br>
-          <TextField id="standard-basic" label="Price" variant="standard" />
+          <TextField id="standard-basic" label="Price" variant="standard" onChange={handleChange}/>
           <br></br>
           <br></br>
           <br></br>
@@ -109,8 +110,11 @@ const Modal = ({ open, close }) => {
             label="ScopeOfWork"
             multiline
             rows={4}
+            onChange={handleChange}
           />
-          <Button
+          <br></br>
+          <br></br>
+          <Button  variant="contained"
             onClick={() => {
               handleFormSubmit()
             }}

@@ -11,7 +11,7 @@ const BasicCard = ({
     return (
         projects.map(project => (
             <div>
-            <Card sx={{ minWidth: 275 }}>
+            <Card sx={{ maxWidth: 500 }} className='project-card'>
                 <CardContent>
                 <CardMedia
                 component="img"
