@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Client {
-    _id: ID!
+    id: ID!
     first_name: String!
     last_name: String!
     home_address: String!
@@ -21,7 +21,7 @@ const typeDefs = gql`
   }
 
   type Project {
-    projectId: ID!
+    id: ID!
     scopeOfWork: String!
     estimatedWorkTime: String!
     price: Int!
@@ -44,6 +44,7 @@ const typeDefs = gql`
     clent(first_name: String!): Client
     employees: [Employee]
     employee(employeeId: ID!): Employee
+    projects: [Project]
     me: Client
   }
 

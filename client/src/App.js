@@ -52,6 +52,10 @@ function App() {
               element={<LoginForm/>} 
             />
             <Route 
+              path="/" 
+              element={<LoginForm/>} 
+            />
+            <Route 
               path="/projects" 
               element={<Project/>} 
             />
