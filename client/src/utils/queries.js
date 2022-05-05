@@ -2,8 +2,9 @@ import { gql } from '@apollo/client';
 
 export const QUERY_ALLPROJECTS = gql`
     {
-        project {
-            _id
+        projects {
+            id
+            scopeOfWork
         }
     }
 `

@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.client) {
-        const clientData = await Clienclient.findOne({
+        const clientData = await Client.findOne({
           _id: context.client._id,
         }).select("-__v -password");
         return clientData;
@@ -14,6 +14,9 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    projects: async () => {
+      return Project.find()
+    } 
   },
 
   Mutation: {
