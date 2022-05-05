@@ -74,15 +74,15 @@ const Modal = ({ open, close }) => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
     console.log(formState);
 
+    formState.price = parseInt(formState.price)
+  
     try {
       const { data } = await addProject({
         variables: { ...formState },
       });
 
-      // Auth.login(data.addProject.token);
     } catch (err) {
       console.error(err);
     }
@@ -91,8 +91,7 @@ const Modal = ({ open, close }) => {
   return (
     <>
       <main>
-        <Box sx={style}
-          onSubmit={handleFormSubmit}>
+        <Box sx={style}>
           <button onClick={close}>X</button>
           <br></br>
           <TextField
@@ -129,6 +128,7 @@ const Modal = ({ open, close }) => {
           <Button  
             variant="contained" 
             type="submit"
+            onClick={handleFormSubmit}
           >
             Submit
           </Button>

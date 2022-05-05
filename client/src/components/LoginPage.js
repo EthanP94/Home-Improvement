@@ -7,6 +7,7 @@ import hilogo from "../images/hilogo.png";
 import Auth from "../utils/auth";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import { Navigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -61,6 +62,9 @@ const LoginForm = () => {
 
   return (
     <div>
+      {Auth.loggedIn() ? ( 
+        <Navigate to={{ pathname: '/projects'}}/>
+      ) : (
       <Grid
         container
         spacing={0}
@@ -110,6 +114,7 @@ const LoginForm = () => {
         </Box>
         <div></div>
       </Grid>
+      )}
     </div>
   );
 };

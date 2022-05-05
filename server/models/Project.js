@@ -1,11 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const projectSchema = new Schema({
-
-  id: {
-    type: String,
-    required: true,
-  },
   scopeOfWork: {
     type: String,
   },
