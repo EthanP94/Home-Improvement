@@ -91,7 +91,8 @@ const Modal = ({ open, close }) => {
   return (
     <>
       <main>
-        <Box sx={style}>
+        <Box sx={style}
+          onSubmit={handleFormSubmit}>
           <button onClick={close}>X</button>
           <br></br>
           <TextField
@@ -99,9 +100,18 @@ const Modal = ({ open, close }) => {
             label="EstimatedWorkTime"
             variant="standard"
             onChange={handleChange}
+            name= "estimatedWorkTime"
+            value={formState.estimatedWorkTime}
           />
           <br></br>
-          <TextField id="standard-basic" label="Price" variant="standard" onChange={handleChange}/>
+          <TextField 
+            id="standard-basic" 
+            label="Price" 
+            variant="standard" 
+            onChange={handleChange}
+            name="price"
+            value={formState.price}
+          />
           <br></br>
           <br></br>
           <br></br>
@@ -111,13 +121,14 @@ const Modal = ({ open, close }) => {
             multiline
             rows={4}
             onChange={handleChange}
+            name="scopeOfWork"
+            value={formState.scopeOfWork}
           />
           <br></br>
           <br></br>
-          <Button  variant="contained"
-            onClick={() => {
-              handleFormSubmit()
-            }}
+          <Button  
+            variant="contained" 
+            type="submit"
           >
             Submit
           </Button>
