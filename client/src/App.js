@@ -9,6 +9,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Project from './pages/Project';
+import SingleProject from './pages/SingleProject';
 // import Employees from './pages/Employee';
 // import Clients from './pages/Client';
 
@@ -59,21 +60,25 @@ function App() {
               path="/projects" 
               element={<Project/>} 
             />
-            {/* <Route 
+            <Route 
               path="/project/:projectId" 
               element={<SingleProject/>} 
             />
-            <Route 
+            {/* <Route 
               path="/employees" 
               element={<Employees/>} 
             />
              <Route 
               path="/employee/:employeeId" 
-              element={<Employees/>} 
+              element={<SingleEmployee/>} 
             />
             <Route 
               path="/clients" 
               element={<Clients/>} 
+            />
+            <Route 
+              path="/clients" 
+              element={<SingleClient/>} 
             />
             <Route 
               path='*' 
