@@ -11,27 +11,17 @@ export const QUERY_ALLPROJECTS = gql`
 
 export const QUERY_ONEPROJECT = gql`
     {
-        project {
-            _id
+        project(id: $projectId) {
             scopeOfWork
-            estimatedWorkTime
             price
-            assignedEmployees {
-                firstName
-                lastName
-            }
-            client {
-                firstName
-                lastName
-            }
+            estimatedWorkTime
         }
     }
 `
 
 export const QUERY_ALLEMPLOYEES = gql`
     {
-        employee {
-            _id
+        employees {
             firstName
             lastName
         }
@@ -40,24 +30,19 @@ export const QUERY_ALLEMPLOYEES = gql`
 
 export const QUERY_ONEEMPLOYEE = gql`
     {
-        employee {
-            _id
-            firstName
+        employee(id: $employeeId) {
             lastName
             expertise
             email
             phoneNumber
-            setProjects {
-                _id
-            }
+            firstName
         }
     }
 `
 
 export const QUERY_ALLCLIENTS = gql`
     {
-        client {
-            _id
+        clients {
             firstName
             lastName
         }
@@ -66,16 +51,12 @@ export const QUERY_ALLCLIENTS = gql`
 
 export const QUERY_ONECLIENT = gql`
     {
-        client {
-            _id
+        client(id: $clientId) {
             firstName
             lastName
-            email
             homeAddress
             phoneNumber
-            setProjects {
-                _id
-            }
+            email
         }
     }
 `

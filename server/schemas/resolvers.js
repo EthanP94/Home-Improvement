@@ -5,27 +5,36 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      if (context.client) {
-        const clientData = await Client.findOne({
-          _id: context.client._id,
+      if (context.manager) {
+        const managerData = await Manager.findOne({
+          _id: context.manager.id,
         }).select("-__v -password");
-        return clientData;
+        return managerData;
       }
 
       throw new AuthenticationError("Not logged in");
     },
     projects: async () => {
       return Project.find()
-    } 
+    },
+    project: async (parent, {id}) => {
+      return Project.findById(id)
+    },
+    employees: async () => {
+      return Employee.find()
+    },
+    employee: async (parent, {id}) => {
+      return Employee.findById(id)
+    },
+    clients: async () => {
+      return Client.find()
+    },
+    client: async (parent, {id}) => {
+      return Client.findById(id)
+    }, 
   },
 
   Mutation: {
-    addClient: async (parent, args) => {
-      const client = await Client.create(args);
-      const token = signToken(client);
-
-      return { token, client };
-    },
     login: async (parent, { email, password }) => {
       console.log("Here I am")
       const manager = await Manager.findOne({ email });
@@ -43,32 +52,48 @@ const resolvers = {
       const token = signToken(manager);
       return { token, manager };
     },
-    // saveProject: async (parent, { bookData }, context) => {
-    //   if (context.client) {
-    //     const updatedClient = await Client.findByIdAndUpdate(
-    //       { _id: context.client._id },
-    //       { $push: { savedBooks: bookData } },
-    //       { new: true }
-    //     );
+    addProject: async (parent, { estimatedWorkTime, price, scopeOfWork }) => {
+      try {
+        const project = await Project.create({ estimatedWorkTime, price, scopeOfWork });
+        
+        if (!project) {
+          throw new AuthenticationError("Project not found");
+        } 
 
-    //     return updatedClient;
-    //   }
+        return project;
+      } catch(err) {
+        console.log(err)
+        throw new AuthenticationError(err)
+      }
+    },
+    addEmployee: async (parent, { firstName, lastName, expertise, email, phoneNumber }) => {
+      try {
+        const employee = await Employee.create({firstName, lastName, expertise, email, phoneNumber});
 
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
-    // removeProject: async (parent, { bookId }, context) => {
-    //   if (context.client) {
-    //     const updatedClient = await Client.findOneAndUpdate(
-    //       { _id: context.client._id },
-    //       { $pull: { savedBooks: { bookId } } },
-    //       { new: true }
-    //     );
+        if (!employee) {
+          throw new AuthenticationError("Employee not found");
+        }
 
-    //     return updatedClient;
-    //   }
+        return employee;
+      } catch(err) {
+        console.log(err)
+        throw new AuthenticationError(err)
+      }
+    },
+    addClient: async (parent, { firstName, lastName, homeAddress, email, phoneNumber }) => {
+      try {
+        const client = await Client.create({firstName, lastName, homeAddress, email, phoneNumber});
 
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+        if (!client) {
+          throw new AuthenticationError("Client not found");
+        }
+
+        return client;
+      } catch(err) {
+        console.log(err)
+        throw new AuthenticationError(err)
+      }
+    },
   },
 };
 

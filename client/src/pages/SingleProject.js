@@ -15,7 +15,7 @@ const Project = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <Card sx={{ maxWidth: 800 }}>
+            <Card sx={{ maxWidth: 800 }} className='project-card'>
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
                   ID: {project.id}

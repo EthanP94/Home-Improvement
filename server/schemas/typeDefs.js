@@ -3,21 +3,21 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Client {
     id: ID!
-    first_name: String!
-    last_name: String!
-    home_address: String!
-    phone_number: String!
+    firstName: String!
+    lastName: String!
+    homeAddress: String!
+    phoneNumber: String!
     email: String!
   }
 
   type Employee {
-    employeeId: ID!
-    first_name: String!
-    last_name: String!
+    id: ID!
+    firstName: String!
+    lastName: String!
     expertise: String!
     email: String!
-    phone_number: String!
-    project: [Project]
+    phoneNumber: String!
+    # project: [Project]
   }
 
   type Project {
@@ -25,11 +25,12 @@ const typeDefs = gql`
     scopeOfWork: String!
     estimatedWorkTime: String!
     price: Int!
-    employee: [Employee]
+    # assignedEmployees: [Employee]
+    # client: Client
   }
 
   type Manager {
-    _id: ID!
+    id: ID!
     email: String!
     password: String!
   }
@@ -41,36 +42,35 @@ const typeDefs = gql`
 
   type Query {
     clients: [Client]
-    clent(first_name: String!): Client
+    client(id: ID!): Client
     employees: [Employee]
-    employee(employeeId: ID!): Employee
+    employee(id: ID!): Employee
     projects: [Project]
-    me: Client
+    project(id: ID!): Project
+    me: Manager
   }
 
   type Mutation {
     addClient(
-      first_name: String!
-      last_name: String!
-      home_address: String!
-      phone_number: String
+      firstName: String!
+      lastName: String!
+      homeAddress: String!
+      phoneNumber: String
       email: String!
-    ): Auth
+    ): Client
     login(email: String!, password: String!): Auth
     addEmployee(
-      first_name: String!
-      last_name: String!
+      firstName: String!
+      lastName: String!
       expertise: String!
       email: String!
-      phone_number: String!
+      phoneNumber: String!
     ): Employee
     addProject(
-      scopeOfwork: String!
+      scopeOfWork: String!
       estimatedWorkTime: String!
-      est_price: Int!
+      price: Int!
     ): Project
-    removeEmployee(employeeId: ID!): Employee
-    removeProject(employeeId: ID!, projectId: ID!): Employee
   }
 `;
 
