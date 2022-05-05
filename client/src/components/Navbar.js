@@ -12,9 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {Link} from 'react-router-dom';
+import Auth from '../utils/auth'
 
 const pages = [{name: 'Projects', link: "/projects"}, {name:'Employees', link: "/employees"},{name:'Clients', link:"/clients"}];
-const settings = [{name:'Profile', link: "/profile"}];
+const settings = [{name:'Profile', link: "/profile", name: 'Logout', Link:'/'}];
 
 const NavAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -33,6 +34,10 @@ const NavAppBar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  
+  const handleLogout = (event) => {
+    Auth.logout();
   };
 
   return (
@@ -127,12 +132,10 @@ const NavAppBar = () => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting.name} onClick={handleCloseNavMenu}>
-                 <Link to={setting.link}><Typography textAlign="center">{setting.name}</Typography></Link>
+                  >
+                <MenuItem onClick={handleLogout}>
+                 <Typography textAlign="center">logout</Typography>
                 </MenuItem>
-              ))}
             </Menu>
           </Box>
         </Toolbar>
