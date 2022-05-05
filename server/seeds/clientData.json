@@ -30,10 +30,53 @@
     "phoneNumber": "353-698-2447"
   },
   {
-    "firstName": "Doug",
-    "lastName": "McSimmons",
-    "homeAddress": "5734 Burlington St, Bad Axe, MI 48413",
-    "email": "mcdoug@gmail.com",
+    "firstName": "Ulysses",
+    "lastName": "S. Grant",
+    "homeAddress": "4854 Whiskey Way, Chesterfield, MI 48047",
+    "email": "ilovewhiskeyandwarletsgooobabyyeaaa@gmail.com",
     "phoneNumber": "586-794-0048"
+  },
+  {
+    "firstName": "Will",
+    "lastName": "Smith",
+    "homeAddress": "7070 KeepMyWifesNameOutYourF***ingMouth Blvd, Slapland, PA 70375",
+    "email": "oooilovemywife@gmail.com",
+    "phoneNumber": "666-909-4523"
+  },
+  {
+    "firstName": "Kendrick",
+    "lastName": "Lamar",
+    "homeAddress": "1612 West 137th St, Compton, CA 90222",
+    "email": "kdot@gmail.com",
+    "phoneNumber": "313-437-2969"
+  },
+  {
+    "firstName": "Sponge",
+    "lastName": "Bob",
+    "homeAddress": "124 Conch St, Bikini Bottom, OC 80497",
+    "email": "krustykrablover@gmail.com",
+    "phoneNumber": "444-666-888"
+  },
+  {
+    "firstName": "Monkey",
+    "lastName": "D. Luffy",
+    "homeAddress": "895 Going Merry Dr, Grand Line, OC 48257",
+    "email": "krustykrablover@gmail.com",
+    "phoneNumber": "444-666-888"
+  },
+  {
+    "firstName": "Guts",
+    "lastName": "The Black Swordsman",
+    "homeAddress": "666 Brand of Sacrifice Way, Midland, EU 12345",
+    "email": "ultragigachad@gmail.com",
+    "phoneNumber": "666-666-6666"
+  },
+  {
+    "firstName": "Naruto",
+    "lastName": "Uzumaki",
+    "homeAddress": "8188 Kurama Dr, Konohagakure, LoF 55289",
+    "email": "endlesschakra@gmail.com",
+    "phoneNumber": "378-901-2398"
   }
+  
 ]
