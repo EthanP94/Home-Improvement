@@ -79,7 +79,7 @@ function App() {
               element={<Clients/>} 
             />
             <Route 
-              path="/clients" 
+              path="/clients/:clientId"  
               element={<SingleClient/>} 
             />
             <Route 

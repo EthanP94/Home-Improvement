@@ -15,8 +15,6 @@ const BasicCard = ({
                         <CardContent>
                         <Typography variant="h5" component="div" style={{ marginTop: '20px' }}>
                             Name: {client.firstName} {client.lastName}
-                            <br></br>
-                            Expertise: {client.expertise}
                         </Typography>
                         </CardContent>
                     </Card>

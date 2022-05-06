@@ -31,7 +31,7 @@ const resolvers = {
       return Client.find();
     },
     client: async (parent, { id }) => {
-      return Client.findById(id);
+      return Client.findOne({_id: id});
     },
   },
 
