@@ -9,9 +9,11 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Project from './pages/Project';
+import Employee from './pages/Employee';
+import Clients from './pages/Client';
 import SingleProject from './pages/SingleProject';
-// import Employees from './pages/Employee';
-// import Clients from './pages/Client';
+import SingleEmployee from './pages/SingleEmployee';
+import SingleClient from './pages/SingleClient';
 
 import NavAppBar from './components/Navbar';
 import LoginForm from './components/LoginPage';
@@ -63,10 +65,11 @@ function App() {
               path="/project/:projectId" 
               element={<SingleProject/>} 
             />
-            {/* <Route 
+            <Route 
               path="/employees" 
-              element={<Employees/>} 
+              element={<Employee/>} 
             />
+            
              <Route 
               path="/employee/:employeeId" 
               element={<SingleEmployee/>} 
@@ -82,7 +85,7 @@ function App() {
             <Route 
               path='*' 
               element={<h1 className="display-2">Wrong page!</h1>}
-            /> */}
+            />
           </Routes>
         </>
       </Router>
