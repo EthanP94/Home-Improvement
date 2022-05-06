@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMutation } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import EmployeeList from "../components/EmployeeList";
@@ -18,8 +18,6 @@ const Employee = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const employees = data?.employees || [];
-
-    console.log(employees)
 
     const handleModalClose = () => {
         setIsModalVisible(false);
@@ -62,8 +60,8 @@ const style = {
 
 const Modal = ({ open, close }) => {
     
-    const skills = [{name:"Carpentry"}, {name:"Electrical"}, {name: "HVAC"}, {name:"Landscaping"}, {name:"Maintenance"}, {name:"Masonry"}, {name:"Plumbing"}, {name:"Roofing"}]
-
+    const skills = ["Carpentry", "Electrical",  "HVAC", "Landscaping", "Maintenance", "Masonry","Plumbing", "Roofing"]
+  
     const [formState, setFormState] = useState({
         firstName: "",
         lastName: "",
@@ -82,6 +80,26 @@ const Modal = ({ open, close }) => {
         [name]: value,
         });
     };
+
+    const handleNameChange = (event) => {
+      console.log(event.target)
+      const {
+        target: { value },
+      } = event;
+      setFormState(
+        // On autofill we get a stringified value.
+        {
+          ...formState,
+          expertise: value
+        }
+      );
+    };
+  
+    useEffect(() => {
+      console.log(formState)
+    }, [formState])
+  
+
 
     const handleFormSubmit = async (event) => {
         console.log(formState);
@@ -131,10 +149,12 @@ const Modal = ({ open, close }) => {
                     id="demo-simple-select"
                     value={formState.expertise}
                     label="expertise"
-                    onChange={handleChange}
+                    onChange={handleNameChange}
                     >
-                    {skills.map((skill) => {
-                        return <MenuItem key={skill.name} value={skill.name}>{skill.name}</MenuItem>
+                    {skills.map((skill, index) => {
+                      return (
+                      <MenuItem key={index} value={skill} primarytext={skill}>{skill}</MenuItem>
+                      )
                     })}
                     </Select>
                 </FormControl>
