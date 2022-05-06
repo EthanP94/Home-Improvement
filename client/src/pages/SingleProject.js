@@ -8,13 +8,12 @@ import Typography from '@mui/material/Typography';
 
 const Project = () => {
   const { projectId } = useParams();  
-
+  console.log(projectId);
   const { loading, data } = useQuery(QUERY_ONEPROJECT, {
     variables: { projectId: projectId },
   });
-  console.log(data)
+
   const project = data?.project || {};
-  console.log(project);
 
   if (loading) {
     return <div>Loading...</div>;

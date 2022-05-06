@@ -101,6 +101,7 @@ const Modal = ({ open, close }) => {
             <Box sx={style}>
                 <button onClick={close}>X</button>
                 <br></br>
+                <br></br>
                 <TextField
                     id="standard-basic"
                     label="firstName"
@@ -109,6 +110,8 @@ const Modal = ({ open, close }) => {
                     name= "firstName"
                     value={formState.firstName}
                 />
+                <br></br>
+                <br></br>
                 <TextField
                     id="standard-basic"
                     label="lastName"
@@ -117,8 +120,10 @@ const Modal = ({ open, close }) => {
                     name= "lastName"
                     value={formState.lastName}
                 />
+                <br></br>
+                <br></br>
                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Expertise</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Expertise</InputLabel>
                     <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -127,18 +132,22 @@ const Modal = ({ open, close }) => {
                     onChange={handleChange}
                     >
                     {skills.map((skill) => {
-                        return <MenuItem key={skill.name}>{skill.name}</MenuItem>
+                        return <MenuItem key={skill.name} value={skill.name}>{skill.name}</MenuItem>
                     })}
                     </Select>
                 </FormControl>
+                <br></br>
+                <br></br>
                 <TextField
-                    id="standard-basic"
-                    label="email"
-                    variant="standard"
-                    onChange={handleChange}
-                    name= "email"
-                    value={formState.email}
+                  id="standard-basic"
+                  label="email"
+                  variant="standard"
+                  onChange={handleChange}
+                  name= "email"
+                  value={formState.email}
                 />
+                <br></br>
+                <br></br>
                 <TextField
                     id="standard-basic"
                     label="phoneNumber"

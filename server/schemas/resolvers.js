@@ -18,7 +18,8 @@ const resolvers = {
       return Project.find();
     },
     project: async (parent, { id }) => {
-      return Project.findById(id);
+      console.log("I made it")
+      return Project.findOne({_id: id}).populate("assignedEmployees");
     },
     employees: async () => {
       return Employee.find();
