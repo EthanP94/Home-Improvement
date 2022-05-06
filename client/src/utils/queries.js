@@ -50,6 +50,7 @@ export const QUERY_ONEEMPLOYEE = gql`
 export const QUERY_ALLCLIENTS = gql`
     {
         clients {
+            id
             firstName
             lastName
         }
