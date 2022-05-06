@@ -21,6 +21,7 @@ export const ADD_PROJECT = gql`
         firstName
         lastName
       }
+      client
   }
 }
 `;
@@ -34,6 +35,9 @@ export const ADD_EMPLOYEE = gql`
         expertise
         email
         phoneNumber
+        projects {
+          id
+        }
     }
 }
 `;

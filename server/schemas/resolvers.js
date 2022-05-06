@@ -25,7 +25,7 @@ const resolvers = {
       return Employee.find();
     },
     employee: async (parent, { id }) => {
-      return Employee.findById(id);
+      return Employee.findOne({_id: id}).populate("projects");
     },
     clients: async () => {
       return Client.find();
@@ -55,11 +55,11 @@ const resolvers = {
     },
     addProject: async (
       parent,
-      { estimatedWorkTime, price, scopeOfWork, assignedEmployees }
+      { estimatedWorkTime, price, scopeOfWork, assignedEmployees, client }
     ) => {
       try {
         const project = await Project.create(
-          { estimatedWorkTime, price, scopeOfWork, assignedEmployees },
+          { estimatedWorkTime, price, scopeOfWork, assignedEmployees, client },
         );
         const newProject = await Project.findOne({_id: project._id}).populate("assignedEmployees")  
         console.log(newProject)

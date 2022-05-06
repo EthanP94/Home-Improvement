@@ -17,7 +17,7 @@ const typeDefs = gql`
     expertise: String!
     email: String!
     phoneNumber: String!
-    # project: [Project]
+    project: [Project]
   }
 
   type Project {
@@ -26,7 +26,7 @@ const typeDefs = gql`
     estimatedWorkTime: String!
     price: Int!
     assignedEmployees: [Employee]
-    # client: Client
+    client: Client
   }
 
   type Manager {
@@ -65,12 +65,14 @@ const typeDefs = gql`
       expertise: String!
       email: String!
       phoneNumber: String!
+      project: [ID]
     ): Employee
     addProject(
       scopeOfWork: String!
       estimatedWorkTime: String!
       price: Int!
       assignedEmployees: [ID]
+      client: ID
     ): Project
   }
 `;
