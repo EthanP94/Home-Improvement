@@ -15,28 +15,28 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     projects: async () => {
-      return Project.find()
+      return Project.find();
     },
-    project: async (parent, {id}) => {
-      return Project.findById(id)
+    project: async (parent, { id }) => {
+      return Project.findById(id);
     },
     employees: async () => {
-      return Employee.find()
+      return Employee.find();
     },
-    employee: async (parent, {id}) => {
-      return Employee.findById(id)
+    employee: async (parent, { id }) => {
+      return Employee.findById(id);
     },
     clients: async () => {
-      return Client.find()
+      return Client.find();
     },
-    client: async (parent, {id}) => {
-      return Client.findById(id)
-    }, 
+    client: async (parent, { id }) => {
+      return Client.findById(id);
+    },
   },
 
   Mutation: {
     login: async (parent, { email, password }) => {
-      console.log("Here I am")
+      console.log("Here I am");
       const manager = await Manager.findOne({ email });
 
       if (!manager) {
@@ -52,46 +52,69 @@ const resolvers = {
       const token = signToken(manager);
       return { token, manager };
     },
-    addProject: async (parent, { estimatedWorkTime, price, scopeOfWork }) => {
+    addProject: async (
+      parent,
+      { estimatedWorkTime, price, scopeOfWork, assignedEmployees }
+    ) => {
       try {
-        const project = await Project.create({ estimatedWorkTime, price, scopeOfWork });
-        
+        const project = await Project.create(
+          { estimatedWorkTime, price, scopeOfWork, assignedEmployees },
+        );
+        const newProject = await Project.findOne({_id: project._id}).populate("assignedEmployees")  
+        console.log(newProject)
         if (!project) {
           throw new AuthenticationError("Project not found");
-        } 
-
-        return project;
-      } catch(err) {
-        console.log(err)
-        throw new AuthenticationError(err)
+        }
+        return newProject;
+      } catch (err) {
+        console.log(err);
+        throw new AuthenticationError(err);
       }
     },
-    addEmployee: async (parent, { firstName, lastName, expertise, email, phoneNumber }) => {
+    addEmployee: async (
+      parent,
+      { firstName, lastName, expertise, email, phoneNumber }
+    ) => {
       try {
-        const employee = await Employee.create({firstName, lastName, expertise, email, phoneNumber});
+        const employee = await Employee.create({
+          firstName,
+          lastName,
+          expertise,
+          email,
+          phoneNumber,
+        });
 
         if (!employee) {
           throw new AuthenticationError("Employee not found");
         }
 
         return employee;
-      } catch(err) {
-        console.log(err)
-        throw new AuthenticationError(err)
+      } catch (err) {
+        console.log(err);
+        throw new AuthenticationError(err);
       }
     },
-    addClient: async (parent, { firstName, lastName, homeAddress, email, phoneNumber }) => {
+    addClient: async (
+      parent,
+      { firstName, lastName, homeAddress, email, phoneNumber }
+    ) => {
       try {
-        const client = await Client.create({firstName, lastName, homeAddress, email, phoneNumber});
+        const client = await Client.create({
+          firstName,
+          lastName,
+          homeAddress,
+          email,
+          phoneNumber,
+        });
 
         if (!client) {
           throw new AuthenticationError("Client not found");
         }
 
         return client;
-      } catch(err) {
-        console.log(err)
-        throw new AuthenticationError(err)
+      } catch (err) {
+        console.log(err);
+        throw new AuthenticationError(err);
       }
     },
   },

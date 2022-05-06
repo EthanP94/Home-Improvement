@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from "@apollo/client";
 import { useQuery } from "@apollo/client";
-import ClientList from "../components/ProjectList";
+import ClientList from "../components/ClientList";
 import { QUERY_ALLCLIENTS} from "../utils/queries";
 import { ADD_CLIENT } from "../utils/mutations";
 import Button from "@mui/material/Button";

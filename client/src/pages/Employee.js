@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from "@apollo/client";
 import { useQuery } from "@apollo/client";
-import EmployeeList from "../components/ProjectList";
+import EmployeeList from "../components/EmployeeList";
 import { QUERY_ALLEMPLOYEES } from "../utils/queries";
 import { ADD_EMPLOYEE } from "../utils/mutations";
 import Button from "@mui/material/Button";
