@@ -24,7 +24,7 @@ const Project = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const projects = data?.projects || [];
-
+  console.log(projects)
   const handleModalClose = () => {
     setIsModalVisible(false);
   };
@@ -51,6 +51,7 @@ const Project = () => {
 
 // modal component =======================================================
 
+// styling for the cards
 const style = {
   position: "absolute",
   top: "50%",
@@ -120,82 +121,80 @@ const Modal = ({ open, close }) => {
       const { data } = await addProject({
         variables: { ...formState },
       });
-
+      console.log(data)
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <>
-      <main>
-        <Box sx={style}>
-          <button onClick={close}>X</button>
-          <br></br>
-          <TextField
-            id="standard-basic"
-            label="EstimatedWorkTime"
-            variant="standard"
-            onChange={handleChange}
-            name= "estimatedWorkTime"
-            value={formState.estimatedWorkTime}
-          />
-          <br></br>
-          <TextField 
-            id="standard-basic" 
-            label="Price" 
-            variant="standard" 
-            onChange={handleChange}
-            name="price"
-            value={formState.price}
-          />
-          <br></br>
-          <br></br>
-          <br></br>
-          <TextField
-            id="outlined-multiline-static"
-            label="ScopeOfWork"
-            multiline
-            rows={4}
-            onChange={handleChange}
-            name="scopeOfWork"
-            value={formState.scopeOfWork}
-          />
-          <br></br>
-          <br></br>
-          <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-checkbox-label">Employees</InputLabel>
-            <Select
-              labelId="demo-multiple-checkbox-label"
-              id="demo-multiple-checkbox"
-              multiple
-              value={personName}
-              onChange={handleNameChange}
-              input={<OutlinedInput label="Employees" />}
-              renderValue={(selected) => selected.join(', ')}
-              MenuProps={MenuProps}
-              name="assignedEmployees"
-            >
-              {fullName.map((name) => (
-                <MenuItem key={name} value={name}>
-                  <Checkbox checked={personName.indexOf(name) > -1} />
-                  <ListItemText primary={name} />
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <br></br>
-          <br></br>
-          <Button  
-            variant="contained" 
-            type="submit"
-            onClick={handleFormSubmit}
+    <main>
+      <Box sx={style}>
+        <button onClick={close}>X</button>
+        <br></br>
+        <TextField
+          id="standard-basic"
+          label="EstimatedWorkTime"
+          variant="standard"
+          onChange={handleChange}
+          name= "estimatedWorkTime"
+          value={formState.estimatedWorkTime}
+        />
+        <br></br>
+        <TextField 
+          id="standard-basic" 
+          label="Price" 
+          variant="standard" 
+          onChange={handleChange}
+          name="price"
+          value={formState.price}
+        />
+        <br></br>
+        <br></br>
+        <br></br>
+        <TextField
+          id="outlined-multiline-static"
+          label="ScopeOfWork"
+          multiline
+          rows={4}
+          onChange={handleChange}
+          name="scopeOfWork"
+          value={formState.scopeOfWork}
+        />
+        <br></br>
+        <br></br>
+        <FormControl sx={{ m: 1, width: 300 }}>
+          <InputLabel id="demo-multiple-checkbox-label">Employees</InputLabel>
+          <Select
+            labelId="demo-multiple-checkbox-label"
+            id="demo-multiple-checkbox"
+            multiple
+            value={personName}
+            onChange={handleNameChange}
+            input={<OutlinedInput label="Employees" />}
+            renderValue={(selected) => selected.join(', ')}
+            MenuProps={MenuProps}
+            name="assignedEmployees"
           >
-            Submit
-          </Button>
-        </Box>
-      </main>
-    </>
+            {fullName.map((name) => (
+              <MenuItem key={name} value={name}>
+                <Checkbox checked={personName.indexOf(name) > -1} />
+                <ListItemText primary={name} />
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <br></br>
+        <br></br>
+        <Button  
+          variant="contained" 
+          type="submit"
+          onClick={handleFormSubmit}
+        >
+          Submit
+        </Button>
+      </Box>
+    </main>
   );
 };
 
