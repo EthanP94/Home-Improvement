@@ -7,12 +7,12 @@ import image from '../../images/project-cards.jpg'
 import { Link } from 'react-router-dom';
 
 const BasicCard = ({
-    id = 0, openModal, projects
+    id = 0, openModal, employees
 }) => {
     return (
-        projects.map(project => (
+        employees.map(employee => (
             <div>
-                <Link to={`/project/${project.id}`}  style={{ textDecoration: 'none' }}>
+                <Link to={`/employee/${employee.id}`}  style={{ textDecoration: 'none' }}>
                     <Card sx={{ maxWidth: 500}} className='project-card'>
                         <CardContent>
                         <CardMedia
@@ -21,9 +21,9 @@ const BasicCard = ({
                         alt="home remodeling tools"
                         />
                         <Typography variant="h5" component="div" style={{ marginTop: '20px' }}>
-                            ID: {project.id}
-                            <br></br> 
-                            Scope of Work: {project.scopeOfWork}
+                            Name: {employee.firstName} {employee.lastName}
+                            <br></br>
+                            Expertise: {employee.expertise}
                         </Typography>
                         </CardContent>
                     </Card>
