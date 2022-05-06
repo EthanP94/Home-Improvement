@@ -25,7 +25,7 @@ const typeDefs = gql`
     scopeOfWork: String!
     estimatedWorkTime: String!
     price: Int!
-    # assignedEmployees: [Employee]
+    assignedEmployees: [Employee]
     # client: Client
   }
 
