@@ -23,7 +23,6 @@ const Project = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const projects = data?.projects || [];
-  console.log(projects)
   const handleModalClose = () => {
     setIsModalVisible(false);
   };
@@ -69,6 +68,7 @@ const Modal = ({ open, close }) => {
     price: "",
     scopeOfWork: "",
     assignedEmployees: [],
+    client: ""
   });
 
   const [addProject, { error }] = useMutation(ADD_PROJECT);
@@ -93,17 +93,15 @@ const Modal = ({ open, close }) => {
     },
   };
   
-  const { data } = useQuery(QUERY_ALLEMPLOYEES)
-  const { clientData } = useQuery(QUERY_ALLCLIENTS)
+  const { data: employeeData } = useQuery(QUERY_ALLEMPLOYEES)
+  const { data: clientData } = useQuery(QUERY_ALLCLIENTS)
   
-  const employees = data?.employees || [];
+  const employees = employeeData?.employees || [];
   const clients = clientData?.clients || [];
 
   const fullName = employees.map(employee => ({fullName: employee.firstName.concat(" ", employee.lastName), id: employee.id}))
-  console.log(clients)
 
   const handleNameChange = (event) => {
-    console.log(event.target)
     const {
       target: { value },
     } = event;
@@ -111,16 +109,24 @@ const Modal = ({ open, close }) => {
       // On autofill we get a stringified value.
       {
         ...formState,
-        assignedEmployees: typeof value === 'string' ? value.split(',') : value,
-        client: value
+        assignedEmployees: typeof value === 'string' ? value.split(',') : value
       }
     );
   };
 
   const clientNames = clients.map(client => ({clientNames: client.firstName.concat(" ", client.lastName), id: client.id}))
-  useEffect(() => {
-    console.log(formState)
-  }, [formState])
+
+  const handleClientChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setFormState(
+      {
+        ...formState,
+        client: value
+      }
+    )
+  }
 
   const handleFormSubmit = async (event) => {
     console.log(formState);
@@ -204,12 +210,13 @@ const Modal = ({ open, close }) => {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={formState.client}
-            label="expertise"
-            onChange={handleNameChange}
+            label="client"
+            onChange={handleClientChange}
+            name="client"
             >
             {clientNames.map((client, index) => {
               return (
-              <MenuItem key={index} value={client} primarytext={client}>{client}</MenuItem>
+              <MenuItem key={index} value={client.id} primarytext={client.clientNames}>{client.clientNames}</MenuItem>
               )
             })}
             </Select>

@@ -14,7 +14,7 @@ const Project = () => {
   });
 
   const project = data?.project || {};
-
+  console.log(project);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -30,6 +30,10 @@ const Project = () => {
                   Price: ${project.price}
                   <br></br>
                   Scope of Work: {project.scopeOfWork}
+                  <br></br>
+                  Assigned Employees: {project.assignedEmployees}
+                  <br></br>
+                  Client: {project.client}
               </Typography>
             </CardContent>
           </Card>
