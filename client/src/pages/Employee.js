@@ -91,6 +91,8 @@ const Modal = ({ open, close }) => {
             variables: { ...formState },
           });
           console.log(data)
+          close()
+          window.location.reload()
         } catch (err) {
           console.error(err);
         }

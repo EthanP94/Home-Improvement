@@ -129,6 +129,7 @@ const Modal = ({ open, close }) => {
       });
       console.log(data)
       close()
+      window.location.reload()
     } catch (err) {
       console.error(err);
     }
