@@ -134,6 +134,15 @@ const Modal = ({ open, close }) => {
                     name= "phoneNumber"
                     value={formState.phoneNumber}
                 />
+                 <br></br>
+                <br></br>
+                <Button  
+                variant="contained" 
+                type="submit"
+                onClick={handleFormSubmit}
+                >
+                Submit
+                </Button>
             </Box>
         </main>
     );
