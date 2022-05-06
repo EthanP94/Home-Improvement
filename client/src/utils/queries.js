@@ -10,13 +10,18 @@ export const QUERY_ALLPROJECTS = gql`
 `
 
 export const QUERY_ONEPROJECT = gql`
-    {
-        project(id: $projectId) {
-            scopeOfWork
-            price
-            estimatedWorkTime
-        }
+    query project($projectId: ID!) {
+  project(id: $projectId) {
+    id
+    scopeOfWork
+    estimatedWorkTime
+    price
+    assignedEmployees {
+      firstName
+      lastName
     }
+  }
+}
 `
 
 export const QUERY_ALLEMPLOYEES = gql`
@@ -25,6 +30,7 @@ export const QUERY_ALLEMPLOYEES = gql`
             id
             firstName
             lastName
+            expertise
         }
     }
 `

@@ -12,13 +12,17 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-    mutation addProject($scopeOfWork: String!, $estimatedWorkTime: String!, $price: Int!) {
-        addProject(scopeOfWork: $scopeOfWork, estimatedWorkTime: $estimatedWorkTime, price: $price) {
-            scopeOfWork
-            estimatedWorkTime
-            price
-        }
-    }
+  mutation Mutation($estimatedWorkTime: String!, $price: Int!, $scopeOfWork: String!, $assignedEmployees: [ID]) {
+    addProject(estimatedWorkTime: $estimatedWorkTime, price: $price, scopeOfWork: $scopeOfWork, assignedEmployees: $assignedEmployees) {
+      scopeOfWork
+      estimatedWorkTime
+      price
+      assignedEmployees {
+        firstName
+        lastName
+      }
+  }
+}
 `;
 
 export const ADD_EMPLOYEE = gql`
