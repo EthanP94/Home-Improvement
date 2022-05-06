@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import ProjectList from "../components/ProjectList";
@@ -69,6 +69,7 @@ const Modal = ({ open, close }) => {
     estimatedWorkTime: "",
     price: "",
     scopeOfWork: "",
+    assignedEmployees: [],
   });
 
   const [addProject, { error }] = useMutation(ADD_PROJECT);
@@ -93,35 +94,41 @@ const Modal = ({ open, close }) => {
     },
   };
   
-
-  const [personName, setPersonName] = useState([]);
-
   const { data } = useQuery(QUERY_ALLEMPLOYEES)
 
   const employees = data?.employees || [];
 
-  const fullName = employees.map(employee => employee.firstName.concat(" ", employee.lastName))
+  const fullName = employees.map(employee => ({fullName: employee.firstName.concat(" ", employee.lastName), id: employee.id}))
 
   const handleNameChange = (event) => {
+    console.log(event.target)
     const {
       target: { value },
     } = event;
-    setPersonName(
+    setFormState(
       // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
+      {
+        ...formState,
+        assignedEmployees: typeof value === 'string' ? value.split(',') : value
+      }
     );
   };
+
+  useEffect(() => {
+    console.log(formState)
+  }, [formState])
 
   const handleFormSubmit = async (event) => {
     console.log(formState);
 
     formState.price = parseInt(formState.price)
-  
+    
     try {
       const { data } = await addProject({
         variables: { ...formState },
       });
       console.log(data)
+      close()
     } catch (err) {
       console.error(err);
     }
@@ -169,7 +176,7 @@ const Modal = ({ open, close }) => {
             labelId="demo-multiple-checkbox-label"
             id="demo-multiple-checkbox"
             multiple
-            value={personName}
+            value={formState.assignedEmployees}
             onChange={handleNameChange}
             input={<OutlinedInput label="Employees" />}
             renderValue={(selected) => selected.join(', ')}
@@ -177,9 +184,9 @@ const Modal = ({ open, close }) => {
             name="assignedEmployees"
           >
             {fullName.map((name) => (
-              <MenuItem key={name} value={name}>
-                <Checkbox checked={personName.indexOf(name) > -1} />
-                <ListItemText primary={name} />
+              <MenuItem key={name.id} value={name.id}>
+                <Checkbox checked={formState.assignedEmployees.indexOf(name.id)> -1} />
+                <ListItemText primary={name.fullName} />
               </MenuItem>
             ))}
           </Select>

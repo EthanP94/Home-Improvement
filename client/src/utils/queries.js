@@ -22,6 +22,7 @@ export const QUERY_ONEPROJECT = gql`
 export const QUERY_ALLEMPLOYEES = gql`
     {
         employees {
+            id
             firstName
             lastName
         }
