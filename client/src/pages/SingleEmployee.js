@@ -13,7 +13,7 @@ const Employee = () => {
     variables: { employeeId: employeeId },
   });
   console.log(data)
-  const employee = data?.project || {};
+  const employee = data?.employee || {};
   console.log(employee);
 
   if (loading) {
