@@ -83,7 +83,7 @@ const resolvers = {
           email,
           phoneNumber,
         });
-
+        
         if (!employee) {
           throw new AuthenticationError("Employee not found");
         }

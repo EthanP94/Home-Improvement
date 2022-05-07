@@ -35,9 +35,6 @@ export const ADD_EMPLOYEE = gql`
         expertise
         email
         phoneNumber
-        projects {
-          id
-        }
     }
 }
 `;

@@ -6,7 +6,6 @@ import { QUERY_ONECLIENT } from "../utils/queries";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { letterSpacing } from "@mui/system";
 
 const Project = () => {
   const { projectId } = useParams();  
@@ -63,6 +62,7 @@ const Project = () => {
                       <></>
                     )
                   }
+                  <br></br>
                   {
                     clientId ? (
                       `

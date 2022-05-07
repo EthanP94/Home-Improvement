@@ -17,7 +17,6 @@ const typeDefs = gql`
     expertise: String!
     email: String!
     phoneNumber: String!
-    # project: [Project]
   }
 
   type Project {
@@ -65,7 +64,7 @@ const typeDefs = gql`
       expertise: String!
       email: String!
       phoneNumber: String!
-      project: [ID]
+      setProjects: [ID]
     ): Employee
     addProject(
       scopeOfWork: String!

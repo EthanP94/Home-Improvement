@@ -20,13 +20,7 @@ const employeeSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-  },
-  setProjects: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Project'
-    }
-  ]
+  }
 });
 
 const Employee = model('Employee', employeeSchema);

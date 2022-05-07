@@ -15,7 +15,6 @@ import {Link} from 'react-router-dom';
 import Auth from '../utils/auth'
 
 const pages = [{name: 'Projects', link: "/projects"}, {name:'Employees', link: "/employees"},{name:'Clients', link:"/clients"}];
-const settings = [{name:'Profile', link: "/profile", name: 'Logout', Link:'/'}];
 
 const NavAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
