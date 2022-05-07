@@ -17,9 +17,11 @@ export const QUERY_ONEPROJECT = gql`
         estimatedWorkTime
         price
         assignedEmployees {
-        firstName
-        lastName
+            id
+            firstName
+            lastName
         }
+        client
     }
 }
 `

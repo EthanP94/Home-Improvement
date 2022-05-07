@@ -26,7 +26,7 @@ const typeDefs = gql`
     estimatedWorkTime: String!
     price: Int!
     assignedEmployees: [Employee]
-    client: ID
+    client: [ID]
   }
 
   type Manager {
