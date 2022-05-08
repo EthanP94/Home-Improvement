@@ -152,7 +152,7 @@ const Modal = ({ open, close }) => {
         <br></br>
         <TextField
           id="standard-basic"
-          label="EstimatedWorkTime"
+          label="Estimated Work Time"
           variant="standard"
           onChange={handleChange}
           name= "estimatedWorkTime"
@@ -172,7 +172,7 @@ const Modal = ({ open, close }) => {
         <br></br>
         <TextField
           id="outlined-multiline-static"
-          label="ScopeOfWork"
+          label="Scope Of Work"
           multiline
           rows={4}
           onChange={handleChange}
