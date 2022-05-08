@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 const BasicCard = ({
     id = 0, openModal, projects
 }) => {
+    console.log(projects)
     return (
         projects.map(project => (
             <div>

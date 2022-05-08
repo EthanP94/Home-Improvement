@@ -12,8 +12,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-  mutation Mutation($estimatedWorkTime: String!, $price: Int!, $scopeOfWork: String!, $assignedEmployees: [ID]) {
-    addProject(estimatedWorkTime: $estimatedWorkTime, price: $price, scopeOfWork: $scopeOfWork, assignedEmployees: $assignedEmployees) {
+  mutation Mutation($estimatedWorkTime: String!, $price: Int!, $scopeOfWork: String!, $assignedEmployees: [ID], $client: ID) {
+    addProject(estimatedWorkTime: $estimatedWorkTime, price: $price, scopeOfWork: $scopeOfWork, assignedEmployees: $assignedEmployees, client: $client) {
       scopeOfWork
       estimatedWorkTime
       price
@@ -21,6 +21,7 @@ export const ADD_PROJECT = gql`
         firstName
         lastName
       }
+      client
   }
 }
 `;

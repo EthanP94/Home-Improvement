@@ -104,6 +104,7 @@ const Modal = ({ open, close }) => {
                     name= "firstName"
                     value={formState.firstName}
                 />
+                <br></br>
                 <TextField
                     id="standard-basic"
                     label="lastName"
@@ -112,6 +113,7 @@ const Modal = ({ open, close }) => {
                     name= "lastName"
                     value={formState.lastName}
                 />
+                <br></br>
                 <TextField
                     id="standard-basic"
                     label="homeAddress"
@@ -120,6 +122,7 @@ const Modal = ({ open, close }) => {
                     name= "homeAddress"
                     value={formState.homeAddress}
                 />
+                <br></br>
                 <TextField
                     id="standard-basic"
                     label="email"
@@ -128,6 +131,7 @@ const Modal = ({ open, close }) => {
                     name= "email"
                     value={formState.email}
                 />
+                <br></br>
                 <TextField
                     id="standard-basic"
                     label="phoneNumber"
@@ -136,7 +140,7 @@ const Modal = ({ open, close }) => {
                     name= "phoneNumber"
                     value={formState.phoneNumber}
                 />
-                 <br></br>
+                <br></br>
                 <br></br>
                 <Button  
                 variant="contained" 

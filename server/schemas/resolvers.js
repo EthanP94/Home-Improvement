@@ -18,14 +18,13 @@ const resolvers = {
       return Project.find();
     },
     project: async (parent, { id }) => {
-      console.log("I made it")
-      return Project.findOne({_id: id}).populate("assignedEmployees");
+      return Project.findOne({_id: id}).populate("assignedEmployees", "client");
     },
     employees: async () => {
       return Employee.find();
     },
     employee: async (parent, { id }) => {
-      return Employee.findById(id);
+      return Employee.findOne({_id: id});
     },
     clients: async () => {
       return Client.find();
@@ -55,11 +54,11 @@ const resolvers = {
     },
     addProject: async (
       parent,
-      { estimatedWorkTime, price, scopeOfWork, assignedEmployees }
+      { estimatedWorkTime, price, scopeOfWork, assignedEmployees, client }
     ) => {
       try {
         const project = await Project.create(
-          { estimatedWorkTime, price, scopeOfWork, assignedEmployees },
+          { estimatedWorkTime, price, scopeOfWork, assignedEmployees, client },
         );
         const newProject = await Project.findOne({_id: project._id}).populate("assignedEmployees")  
         console.log(newProject)
@@ -84,7 +83,7 @@ const resolvers = {
           email,
           phoneNumber,
         });
-
+        
         if (!employee) {
           throw new AuthenticationError("Employee not found");
         }

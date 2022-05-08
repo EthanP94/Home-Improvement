@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import ProjectList from "../components/ProjectList";
-import { QUERY_ALLPROJECTS } from "../utils/queries";
+import { QUERY_ALLCLIENTS, QUERY_ALLPROJECTS, QUERY_ALLEMPLOYEES } from "../utils/queries";
 import { ADD_PROJECT } from "../utils/mutations";
-import { QUERY_ALLEMPLOYEES } from "../utils/queries";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -24,7 +23,6 @@ const Project = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const projects = data?.projects || [];
-  console.log(projects)
   const handleModalClose = () => {
     setIsModalVisible(false);
   };
@@ -70,6 +68,7 @@ const Modal = ({ open, close }) => {
     price: "",
     scopeOfWork: "",
     assignedEmployees: [],
+    client: ""
   });
 
   const [addProject, { error }] = useMutation(ADD_PROJECT);
@@ -94,14 +93,15 @@ const Modal = ({ open, close }) => {
     },
   };
   
-  const { data } = useQuery(QUERY_ALLEMPLOYEES)
-
-  const employees = data?.employees || [];
+  const { data: employeeData } = useQuery(QUERY_ALLEMPLOYEES)
+  const { data: clientData } = useQuery(QUERY_ALLCLIENTS)
+  
+  const employees = employeeData?.employees || [];
+  const clients = clientData?.clients || [];
 
   const fullName = employees.map(employee => ({fullName: employee.firstName.concat(" ", employee.lastName), id: employee.id}))
 
   const handleNameChange = (event) => {
-    console.log(event.target)
     const {
       target: { value },
     } = event;
@@ -114,9 +114,19 @@ const Modal = ({ open, close }) => {
     );
   };
 
-  useEffect(() => {
-    console.log(formState)
-  }, [formState])
+  const clientNames = clients.map(client => ({clientNames: client.firstName.concat(" ", client.lastName), id: client.id}))
+
+  const handleClientChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setFormState(
+      {
+        ...formState,
+        client: value
+      }
+    )
+  }
 
   const handleFormSubmit = async (event) => {
     console.log(formState);
@@ -191,6 +201,25 @@ const Modal = ({ open, close }) => {
               </MenuItem>
             ))}
           </Select>
+        </FormControl>
+        <br></br>
+        <br></br>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Client</InputLabel>
+            <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={formState.client}
+            label="client"
+            onChange={handleClientChange}
+            name="client"
+            >
+            {clientNames.map((client, index) => {
+              return (
+              <MenuItem key={index} value={client.id} primarytext={client.clientNames}>{client.clientNames}</MenuItem>
+              )
+            })}
+            </Select>
         </FormControl>
         <br></br>
         <br></br>
