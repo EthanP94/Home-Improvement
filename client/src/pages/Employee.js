@@ -124,7 +124,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                     id="standard-basic"
-                    label="firstName"
+                    label="First Name"
                     variant="standard"
                     onChange={handleChange}
                     name= "firstName"
@@ -134,7 +134,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                     id="standard-basic"
-                    label="lastName"
+                    label="Last Name"
                     variant="standard"
                     onChange={handleChange}
                     name= "lastName"
@@ -148,7 +148,7 @@ const Modal = ({ open, close }) => {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={formState.expertise}
-                    label="expertise"
+                    label="Expertise"
                     onChange={handleNameChange}
                     >
                     {skills.map((skill, index) => {
@@ -162,7 +162,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                   id="standard-basic"
-                  label="email"
+                  label="Email"
                   variant="standard"
                   onChange={handleChange}
                   name= "email"
@@ -172,7 +172,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                     id="standard-basic"
-                    label="phoneNumber"
+                    label="Phone Number"
                     variant="standard"
                     onChange={handleChange}
                     name= "phoneNumber"
