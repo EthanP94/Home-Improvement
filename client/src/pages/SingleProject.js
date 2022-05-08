@@ -46,12 +46,16 @@ const Project = () => {
       employeeNames.push(empNames)
     }
   }
-  console.log(employeeNames)
 
-  const displayNames = (array, index) => {
-    return `${array[index].firstName} + ${array[index].lastName}` 
+  const allNames = [];
+
+  if (employeeNames.length) {
+    for (let i = 0; i < employeeNames.length; i++) {
+      allNames.push(employeeNames[i][0].firstName + ' ' + employeeNames[i][0].lastName) 
+    }
   }
 
+  console.log(allNames)
   if (loading) {
     <div>Loading...</div>
   }
@@ -72,7 +76,7 @@ const Project = () => {
                   {
                     allempIds.length > 0 ? (
                       `
-                      Assigned Employees: ${allempIds.join()}
+                      Assigned Employees: ${allNames.join()}
                       `
                     ) : (
                       <></>
