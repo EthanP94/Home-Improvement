@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_ONEPROJECT } from "../utils/queries";
 import { QUERY_ONECLIENT } from "../utils/queries";
+import { QUERY_ALLEMPLOYEES } from "../utils/queries";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -15,7 +16,7 @@ const Project = () => {
   });
 
   const project = projectData?.project || {};
-
+ 
   const allempIds = [];
 
   if (project.assignedEmployees) {
@@ -35,6 +36,21 @@ const Project = () => {
   })
 
   const client = clientData?.client || {};
+
+  const { data: employeeData } = useQuery(QUERY_ALLEMPLOYEES);
+
+  const employeeNames = []
+  if (employeeData) {
+    for (let i = 0; i < allempIds.length; i++) {
+      const empNames = employeeData.employees?.filter(employee => employee.id === allempIds[i])
+      employeeNames.push(empNames)
+    }
+  }
+  console.log(employeeNames)
+
+  const displayNames = (array, index) => {
+    return `${array[index].firstName} + ${array[index].lastName}` 
+  }
 
   if (loading) {
     <div>Loading...</div>
