@@ -98,7 +98,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                     id="standard-basic"
-                    label="firstName"
+                    label="First Name"
                     variant="standard"
                     onChange={handleChange}
                     name= "firstName"
@@ -107,7 +107,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                     id="standard-basic"
-                    label="lastName"
+                    label="Last Name"
                     variant="standard"
                     onChange={handleChange}
                     name= "lastName"
@@ -116,7 +116,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                     id="standard-basic"
-                    label="homeAddress"
+                    label="Home Address"
                     variant="standard"
                     onChange={handleChange}
                     name= "homeAddress"
@@ -125,7 +125,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                     id="standard-basic"
-                    label="email"
+                    label="Email"
                     variant="standard"
                     onChange={handleChange}
                     name= "email"
@@ -134,7 +134,7 @@ const Modal = ({ open, close }) => {
                 <br></br>
                 <TextField
                     id="standard-basic"
-                    label="phoneNumber"
+                    label="Phone Number"
                     variant="standard"
                     onChange={handleChange}
                     name= "phoneNumber"
